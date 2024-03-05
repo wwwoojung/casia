@@ -1,0 +1,117 @@
+.Header {
+    @include header-fixed();
+
+    line-height: 100px;
+    white-space: nowrap;
+
+    &.on {
+        background: rgba($color: $dark-color, $alpha: 0.9);
+    }
+
+    .header_wrap {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: $default-padding;
+
+        h1 {
+            flex: 0 0 42px;
+        }
+
+        .gnb {
+            &>ul {
+                display: flex;
+                gap: 60px;
+
+                &>li>a {
+                    display: block;
+                    font-size: 18px;
+                    color: $white-color;
+                }
+            }
+        }
+
+        .util_area a {
+            color: $white-color;
+            font-size: 28px;
+            font-weight: 800;
+
+            .feather {
+                width: 36px;
+                height: 36px;
+                margin: 0 16px 0 0;
+                vertical-align: middle;
+            }
+        }
+
+        .m_btn {
+            display: none;
+        }
+
+        @include responsive-pc {
+            .util_area {
+                display: none;
+            }
+        }
+
+        @include responsive-tablet {
+            h1 {
+                position: fixed;
+                z-index: 1000;
+            }
+
+            .gnb {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: calc(100% - $default-gap * 4);
+                height: 100vh;
+                background: $primary-color;
+
+                padding: 150px 24px 0 24px;
+                transition: left 0.5s;
+
+                &>ul {
+                    flex-direction: column;
+                    gap: 0;
+
+                    &>li>a {
+                        line-height: 40px;
+                        border-bottom: 1px solid rgba($color: $white-color, $alpha: 0.5);
+                    }
+                }
+            }
+
+            .m_btn {
+                display: block;
+                border: none;
+                background: transparent;
+
+                .feather {
+                    position: fixed;
+                    top: 30px;
+                    right: 16px;
+                    z-index: 1000;
+
+                    color: $white-color;
+                    background: $dark-color;
+                    padding: 8px;
+                    box-sizing: content-box;
+                }
+            }
+        }
+
+        @include responsive-mobile {
+            .gnb {
+                width: 100%;
+            }
+        }
+    }
+
+    &.active {
+        .gnb {
+            left: 0;
+        }
+    }
+}

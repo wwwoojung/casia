@@ -1,0 +1,52 @@
+.MainContent {
+    @include default-section;
+    @include inner;
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        gap: $default-gap;
+
+        @include responsive-pc {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        @include responsive-tablet {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .itm {
+            figure {
+                position: relative;
+                margin: 0 0 16px 0;
+
+                &::after {
+                    content: attr(data-txt);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+
+                    background: $primary-color;
+                    color: $white-color;
+                    line-height: 24px;
+                    text-align: center;
+                }
+            }
+
+            figcaption {
+                strong {
+                    display: block;
+                    margin: 0 0 8px 0;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

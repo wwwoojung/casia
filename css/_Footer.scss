@@ -1,0 +1,46 @@
+.Footer {
+    @include inner;
+    padding: 80px 0;
+
+    ul.ft_list,
+    ul.fb_list {
+        display: flex;
+        justify-content: center;
+        gap: $default-gap * 1;
+
+        margin: 0 0 8px 0;
+
+        li~li {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 7px;
+                left: -($default-gap * 1) / 2 - 1;
+
+                width: 2px;
+                height: 2px;
+
+                background: $dark-color;
+            }
+        }
+    }
+
+    .copy {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    @include responsive-tablet {
+
+        ul.ft_list,
+        ul.fb_list {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            margin: 0 0 24px 0;
+        }
+    }
+}

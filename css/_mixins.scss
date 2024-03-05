@@ -1,0 +1,83 @@
+@mixin inner {
+    .inner {
+        max-width: $default-size;
+        margin: 0 auto;
+        padding: $default-padding;
+    }
+}
+
+@mixin header-fixed($f: fixed) {
+    position: $f;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+@mixin default-section {
+    padding: $default-section-padding;
+
+    .tit {
+        max-width: $default-size;
+        padding: $default-padding;
+        margin: 0 auto 40px auto;
+
+        h2 {
+            font-size: 16px;
+            text-align: center;
+            margin: 0 0 8px 0;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            color: $primary-color;
+        }
+    }
+}
+
+@mixin button {
+    background: transparent;
+    border: none;
+    border: 0;
+}
+
+@mixin background($img: null) {
+    background: url(../images/#{$img}) no-repeat center center/cover;
+}
+
+@mixin center-position($z: 999) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: $default-size;
+    width: 100%;
+    padding: $default-padding;
+    z-index: $z;
+}
+
+@mixin text-shadow() {
+    text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+@mixin responsive-pc {
+    @media (max-width:$default-size) {
+        @content;
+    }
+}
+
+@mixin responsive-tablet {
+    @media (max-width:$responsive-tablet-size) {
+        @content;
+    }
+}
+
+@mixin responsive-mobile {
+    @media (max-width:$responsive-mobile-size) {
+        @content;
+    }
+}

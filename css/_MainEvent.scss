@@ -1,0 +1,79 @@
+.MainEvent {
+    @include default-section;
+    @include inner;
+
+    padding: 200px 0 400px 0;
+
+    background: url(../images/bg_main2.jpg) no-repeat left bottom /cover;
+
+    h2 {
+        margin: 0 0 40px 0;
+
+        span {
+            display: block;
+            font-size: 40px;
+            font-weight: 100;
+            color: $white-color;
+            line-height: 44px;
+            text-align: center;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: $default-gap;
+
+        @include responsive-pc {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        @include responsive-tablet {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .itm {
+            background: rgba($color: $primary-color, $alpha: 0.75);
+            padding: 48px;
+            border-radius: 32px;
+
+            h3 {
+                margin: 0 auto;
+                max-width: 260px;
+                min-height: 70px;
+
+                font-size: 24px;
+                font-weight: 600;
+                color: $white-color;
+                white-space: wrap;
+                word-break: keep-all;
+                text-align: center;
+                line-height: 28px;
+            }
+
+            p {
+                color: $white-color;
+                text-align: center;
+                line-height: 20px;
+                word-break: keep-all;
+            }
+        }
+    }
+
+    @include responsive-mobile {
+        h2 {
+            span {
+                font-size: 6vw;
+                line-height: 1.2;
+            }
+        }
+
+        .content {
+            .itm {
+                h3 {
+                    font-size: 4vw;
+                }
+            }
+        }
+    }
+}
